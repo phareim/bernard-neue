@@ -1,0 +1,14 @@
+#!/bin/sh
+# Location: bin/hubot
+# Hubot custom launcher, using forever (https://github.com/nodejitsu/forever). 
+# If you want to run hubot locally, don't call this script. run this instead:
+# coffee node_modules/.bin/hubot 
+
+npm install
+
+# put below path into hubot.env along with other hubot environment variables
+# export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+
+source ../hubot.env
+
+forever start --pidfile /var/run/hubot.pid -l /var/log/slackbot.log -a -c coffee node_modules/.bin/hubot --adapter slack --name slackbot --alias .
