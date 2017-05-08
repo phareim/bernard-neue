@@ -1,7 +1,7 @@
 const spawn = require('child_process').spawn;
 var doRedeploy = false;
 module.exports = function (robot) {
-  robot.respond(/redeploy bernard!/i, function (res) {
+  robot.respond(/redeploy/i, function (res) {
     var pull = spawn('git', ['pull']);
     pull.stdout.on('data', data => {
 		console.log(` ${data}`);
