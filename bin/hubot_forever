@@ -9,4 +9,5 @@ npm install
 # put below path into hubot.env along with other hubot environment variables
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-forever start --pidfile /var/run/hubot.pid -l /var/log/slackbot.log -a -c coffee node_modules/.bin/hubot --adapter slack --name slackbot --alias .
+forever start --pidfile /var/run/hubot.pid -l /var/log/slackbot.log -a -w -c coffee node_modules/.bin/hubot --adapter slack --name slackbot --alias .
+# .
