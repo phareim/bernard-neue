@@ -1,21 +1,20 @@
-const spawn = require( 'child_process' ).spawn;
+const spawn = require('child_process').spawn;
 var doRedeploy = false;
 module.exports = function (robot) {
-	robot.respond(/redeploy bernard!/i, function (res) {		
-		ls = spawn( 'git', [ 'pull' ] );
-		ls.stdout.on( 'data', data => {
-		    res.send( `${data}` );
-		});
+  robot.respond(/redeploy bernard!/i, function (res) {
+    res.send('Yessir. Jeg redeployer hvis jeg finner noe nytt. :spock-hand:');
+    var pull = spawn('git', ['pull']);
+    pull.stdout.on('data', data => {});
 
-		ls.stderr.on( 'data', data => {
-		    res.send( `${data}` );
-		});
+    pull.stderr.on('data', data => {
+      res.send(`Ooops: ${data}`);
+    });
 
-		ls.on( 'close', code => {
-		    if(code === 0)
-				res.send(`:thumbsup:`);
-			else
-				res.send(':thumbsdown:');
-		});
-	});
+    pull.on('close', code => {
+      if (code === 0)
+        res.send(`:thumbsup:`);
+      else
+        res.send(':thumbsdown:');
+    });
+  });
 }
