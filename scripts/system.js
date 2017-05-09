@@ -13,8 +13,14 @@ module.exports = function (robot) {
     });
   });
 
+
   robot.respond(/sys whoami/i, function (res) {
-    console.log(robot);
-    console.log(res);
+    
+    if (res.message.user.name === 'petter'){
+      console.log(res.message.user.profile);
+      res.send('Hei Petter! :spock-hand:');
+    }
+    else
+      res.send('Hei ' + res.message.user.name);
   });
 }
