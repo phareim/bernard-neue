@@ -6,10 +6,15 @@ module.exports = function (robot) {
     res.send('din kommando: ' + husk);
   });
 
-  robot.respond(/pwd/i, function (res) {
+  robot.respond(/sys pwd/i, function (res) {
     var pwd = spawn('pwd');
     pwd.stdout.on('data', data => {
       res.send('working Directory: ' + data);
     });
+  });
+
+  robot.respond(/sys whoami/i, function (res) {
+    res.send(JSON.stringify(robot));
+    res.send(JSON.stringify(res));
   });
 }
