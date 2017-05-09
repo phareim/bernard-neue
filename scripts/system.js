@@ -14,7 +14,7 @@ module.exports = function (robot) {
   });
 
   robot.respond(/sys whoami/i, function (res) {
-    res.send(JSON.stringify(robot));
-    res.send(JSON.stringify(res));
+    console.log(robot);
+    console.log(res);
   });
 }
