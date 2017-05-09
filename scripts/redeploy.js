@@ -30,7 +30,7 @@ module.exports = function (robot) {
       res.send('sorry, ' + res.message.user.name + ', det er bare petter som får lov å gjøre deploy. :8bit-heart:');
       return;
     }
-    var pull = spawn('cd ../www_docs && git pull', []);
+    var pull = spawn('redeploy_home', []);
     pull.stdout.on('data', data => {
       console.log(` ${data}`);
     });
