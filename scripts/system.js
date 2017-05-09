@@ -1,4 +1,4 @@
-import * as Status from '../app/status';
+require('../app/status');
 const spawn = require('child_process').spawn;
 
 module.exports = function (robot) {
@@ -15,7 +15,7 @@ module.exports = function (robot) {
   });
 
   robot.respond(/sys test/i, function (res) {
-    res.send(Status.test());
+    res.send(test());
   });
 
 
