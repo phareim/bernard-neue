@@ -41,7 +41,7 @@ module.exports = function (robot) {
     });
     pull.on('close', code => {
       if (code === 0)
-        res.send(`:spock-hand:`);
+        res.send(`:thumbsup:`);
       else
         res.send(':thumbsdown:');
     });
