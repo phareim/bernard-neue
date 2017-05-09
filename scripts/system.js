@@ -1,5 +1,4 @@
-var sys = require('sys')
-var exec = require('child_process').exec;
+const spawn = require('child_process').spawn;
 
 module.exports = function (robot) {
   robot.respond(/sys: (.*)/i, function (res) {
@@ -8,9 +7,9 @@ module.exports = function (robot) {
   });
 
   robot.respond(/pwd/i, function (res) {
-        var pull = spawn('pwd', []);
-    pull.stdout.on('data', data => {
-          res.send('working Directory: ' + data);
+    var pwd = spawn('pwd');
+    pwd.stdout.on('data', data => {
+      res.send('working Directory: ' + data);
     });
   });
 }
