@@ -1,3 +1,4 @@
+import * as Status from '../app/status';
 const spawn = require('child_process').spawn;
 
 module.exports = function (robot) {
@@ -13,14 +14,17 @@ module.exports = function (robot) {
     });
   });
 
+  robot.respond(/sys test/i, function (res) {
+    res.send(Status.test());
+  });
+
 
   robot.respond(/sys whoami/i, function (res) {
-    
-    if (res.message.user.name === 'petter'){
+
+    if (res.message.user.name === 'petter') {
       console.log(res.message.user.profile);
       res.send('Hei Petter! :spock-hand:');
-    }
-    else
+    } else
       res.send('Hei ' + res.message.user.name);
   });
 }

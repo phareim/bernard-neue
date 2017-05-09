@@ -12,7 +12,7 @@ module.exports = function (robot) {
     });
     pull.on('close', code => {
       if (code === 0)
-        res.send(`:thumbsup:`);
+        res.send(`:spock-hand:`);
       else
         res.send(':thumbsdown:');
     });
