@@ -3,3 +3,5 @@ node_modules
 .hubot_history
 hubot.env
 deploy_home
+*.iml
+.idea
