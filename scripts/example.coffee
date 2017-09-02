@@ -20,8 +20,8 @@ module.exports = (robot) ->
   #   else
   #     res.reply "Opening #{doorType} doors"
   #
-   robot.respond /status/i, (res) ->
-     res.send "Civ 5-serveren er ettertrykkelig nede for telling. For Game of Thrones må du nesten bare sjekke selv: http://www.thronemaster.net/?goto=gaming&sub=my_games"
+  # robot.respond /status/i, (res) ->
+  #   res.send "Civ 5-serveren er ettertrykkelig nede for telling. For Game of Thrones må du nesten bare sjekke selv: http://www.thronemaster.net/?goto=gaming&sub=my_games"
   #
   # lulz = ['lol', 'rofl', 'lmao']
   #
