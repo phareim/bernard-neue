@@ -1,11 +1,11 @@
 // Description:
 //   status
-const thronemaster = require('thronemaster-tools');
-const id = 131993;
+var thronemaster = require('thronemaster-tools');
+var id = 131993;
 module.exports = function (robot) {
   robot.respond(/status (.*)/i, function (res) {
     thronemaster.getLog(id, function (status) {
-      let t = status.pop();
+      var t = status.pop();
       res.send('Siste flytt i runde ' + t.turn + ' er: ' + t.player + ' ' + t.logEntry);
     });
   });
