@@ -6,7 +6,7 @@ var id = 131993;
 module.exports = function (robot) {
 
   robot.respond(/thronemaster spill-id (.*)/i, function (res) {
-    var id = res.match[2];
+    var id = res.match[1];
     robot.brain.set('thronemaster-spill-id', id);
     res.send('spill-id satt til: ' + robot.brain.get('thronemaster-spill-id'));
   });
