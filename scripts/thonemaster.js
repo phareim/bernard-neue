@@ -15,23 +15,22 @@ module.exports = function (robot) {
         return s.gamePhase === t.gamePhase;
       });
       let b = [];
+
+      let attachments = [];
+      attachments.push({
+        "title": "Runde " + t.turn + " (" + t.gamePhase + ")",
+        "title_link": "http://game.thronemaster.net/?game=131993"
+      });
       filter.forEach(function (a) {
-        b.push({
+        attachments.push({
           "author_name": a.player,
           // "title": "Move"+t.turn,
           "text": a.logEntry,
           "footer": "Move" + a.turn + ": " + a.date
         })
       });
-
       res.send({
-        "attachments": [
-          {
-            "title": "Runde " + t.turn + " (" + t.gamePhase + ")",
-            "title_link": "http://game.thronemaster.net/?game=131993"
-          },
-          b.pop()
-        ]
+        "attachments": attachments
       });
     });
   })
