@@ -11,12 +11,12 @@ module.exports = function (robot) {
       }
       var t = status[status.length - 1];
       //res.send('Siste flytt i runde ' + t.turn + ' er: ' + t.player + ' ' + t.logEntry);
-      let filter = status.filter(function (s) {
+      var filter = status.filter(function (s) {
         return s.gamePhase === t.gamePhase;
       });
-      let b = [];
+      var b = [];
 
-      let attachments = [];
+      var attachments = [];
       attachments.push({
         "title": "Runde " + t.turn + " (" + t.gamePhase + ")",
         "title_link": "http://game.thronemaster.net/?game=131993"
