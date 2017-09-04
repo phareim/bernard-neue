@@ -2,7 +2,6 @@
 //   status
 //   thronemaster spill-id [id]
 var thronemaster = require('thronemaster-tools');
-var id = 131993;
 module.exports = function (robot) {
 
   robot.respond(/thronemaster spill-id (.*)/i, function (res) {
@@ -12,7 +11,7 @@ module.exports = function (robot) {
   });
 
   robot.respond(/status/i, function (res) {
-    thronemaster.getLog(id, function (status) {
+    thronemaster.getLog(robot.brain.get('thronemaster-spill-id'), function (status) {
       if (!status || status.constructor !== Array) {
         res.send('Sorry ass. Fant ikke det du lette etter.');
         return;
