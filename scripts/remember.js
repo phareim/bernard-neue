@@ -11,7 +11,7 @@ module.exports = function (robot) {
   robot.respond(/huskeliste/i, function (res) {
     var husk = robot.brain.get('husk');
     if (husk) {
-      res.set(husk);
+      res.send(husk);
     }
     else
       res.send('Sorry ass. Jeg har glemt det alt.');
