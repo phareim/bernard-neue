@@ -6,6 +6,7 @@
   "description": "Bernard har flyttet for seg selv",
   "dependencies": {
     "hubot": "^2.19.0",
+    "hubot-azure-brain": "^1.0.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
     "hubot-google-translate": "^0.2.0",
