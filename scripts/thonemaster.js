@@ -12,7 +12,7 @@ module.exports = function (robot) {
       var t = status[status.length - 1];
       //res.send('Siste flytt i runde ' + t.turn + ' er: ' + t.player + ' ' + t.logEntry);
       var filter = status.filter(function (s) {
-        return s.gamePhase === t.gamePhase;
+        return s.gamePhase === t.gamePhase && t.turn === s.turn;
       });
       var b = [];
 
@@ -26,7 +26,7 @@ module.exports = function (robot) {
           "author_name": a.player,
           // "title": "Move"+t.turn,
           "text": a.logEntry,
-          "footer": "Move" + a.turn + ": " + a.date
+          "footer": "Move " + a.turn + ": " + a.date
         })
       });
       res.send({
