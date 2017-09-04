@@ -18,7 +18,7 @@ module.exports = function (robot) {
 
       var attachments = [];
       attachments.push({
-        "title": "Runde " + t.turn + " (" + t.gamePhase + ")",
+        "title": "Round " + t.turn + " (" + t.gamePhase + ")",
         "title_link": "http://game.thronemaster.net/?game=131993"
       });
       filter.forEach(function (a) {
