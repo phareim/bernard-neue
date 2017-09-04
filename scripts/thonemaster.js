@@ -14,26 +14,27 @@ module.exports = function (robot) {
       let filter = status.filter(function (s) {
         return s.gamePhase === t.gamePhase;
       });
+      let b = [];
+      filter.forEach(function (a) {
+        b.push({
+          "author_name": a.player,
+          // "title": "Move"+t.turn,
+          "text": a.logEntry,
+          "footer": "Move" + a.turn + ": " + a.date
+        })
+      });
+
       res.send({
         "attachments": [
           {
             "title": "Runde " + t.turn + " (" + t.gamePhase + ")",
             "title_link": "http://game.thronemaster.net/?game=131993"
           },
-          function () {
-            return filter.forEach(function (a) {
-              return {
-                "author_name": a.player,
-                // "title": "Move"+t.turn,
-                "text": a.logEntry,
-                "footer": "Move" + a.turn + ": " + a.date
-              }
-            });
-          }
+          b.pop()
         ]
       });
     });
-  });
+  })
 };
 // [
 //    {id:number, turn:number, gamePhase: string, player: string, logEntry:string, date:date}
