@@ -26,7 +26,7 @@ module.exports = function (robot) {
           "author_name": a.player,
           // "title": "Move"+t.turn,
           "text": a.logEntry,
-          "footer": "Move " + a.turn + ": " + a.date
+          "footer": "Move " + a.number + ": " + a.date
         })
       });
       res.send({
