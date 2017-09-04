@@ -33,7 +33,7 @@ module.exports = function (robot) {
           "author_name": a.player,
           // "title": "Move"+t.turn,
           "text": a.logEntry,
-          "footer": "Move " + a.number + ": " + a.date
+          "footer": "Move " + a.id + ": " + a.date
         })
       });
       res.send({
