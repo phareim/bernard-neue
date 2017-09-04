@@ -11,11 +11,11 @@ module.exports = function (robot) {
     }
     var pull = spawn('git', ['pull']);
     pull.stdout.on('data', data => {
-      console.log(` ${data}`);
+      res.send(` ${data}`);
     });
 
     pull.stderr.on('data', data => {
-      console.log(` ${data}`);
+      res.send(` ${data}`);
     });
     pull.on('close', code => {
       if (code === 0)
