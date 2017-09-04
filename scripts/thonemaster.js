@@ -11,17 +11,24 @@ module.exports = function (robot) {
       }
       var t = status[status.length - 1];
       //res.send('Siste flytt i runde ' + t.turn + ' er: ' + t.player + ' ' + t.logEntry);
+      let filter = status.filter(function (s) {
+        return s.gamePhase === t.gamePhase;
+      });
       res.send({
         "attachments": [
           {
-            "title": "Runde " + t.turn + ", fase " + t.gamePhase + ".",
+            "title": "Runde " + t.turn + " (" + t.gamePhase + ")",
             "title_link": "http://game.thronemaster.net/?game=131993"
           },
-          {
-            "author_name": t.player,
-            // "title": "Move"+t.turn,
-            "text": t.logEntry,
-            "footer": "Move" + t.turn + ": " + t.date
+          function () {
+            return filter.forEach(function (a) {
+              return {
+                "author_name": a.player,
+                // "title": "Move"+t.turn,
+                "text": a.logEntry,
+                "footer": "Move" + a.turn + ": " + a.date
+              }
+            });
           }
         ]
       });
